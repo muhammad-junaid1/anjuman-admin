@@ -16,11 +16,16 @@ import { toast } from "react-toastify";
 import SendMessageModal from "./SendMessageModal";
 import UserDetailsModal from "./UserDetailsModal";
 import { postApi } from "services/api";
+import AnnounceModal from "./AnnounceModal";
 
 const UsersPage = () => {
   const [username, setUsername] = useState("");
   const [users, setUsers] = useState([]); // Example: This would typically come from an API call
   const [sendMessageModal, setSendMessageModal] = useState({
+    isOpen: false,
+    data: null,
+  });
+  const [announceModal, setAnnounceModal] = useState({
     isOpen: false,
     data: null,
   });
@@ -60,6 +65,13 @@ const UsersPage = () => {
     setSendMessageModal({
       isOpen: true,
       data: user,
+    });
+  };
+
+    const handleAnnounce = (userId) => {
+    setAnnounceModal({
+      isOpen: true,
+      data: userId,
     });
   };
 
@@ -104,17 +116,25 @@ const UsersPage = () => {
                     Details
                   </Button>
                   <Button
+                    colorScheme="green"
+                    onClick={() => handleSendMessage(user)}
+                    mr={2}
+                  >
+                    Send Message
+                  </Button>
+                  <Button
+                    colorScheme="teal"
+                    onClick={() => handleAnnounce(user?._id)}
+                    mr={2}
+                  >
+                    Announce
+                  </Button>
+                  <Button
                     colorScheme="red"
                     onClick={() => handleDelete(user._id)}
                     mr={2}
                   >
                     Delete
-                  </Button>
-                  <Button
-                    colorScheme="green"
-                    onClick={() => handleSendMessage(user)}
-                  >
-                    Send Message
                   </Button>
                 </Td>
               </Tr>
@@ -136,6 +156,13 @@ const UsersPage = () => {
           data={userDetailsModal?.data}
           isOpen={userDetailsModal?.isOpen}
           onClose={() => setUserDetailsModal({ isOpen: false, data: null })}
+        />
+      )}
+      {announceModal?.isOpen && (
+        <AnnounceModal
+          data={announceModal?.data}
+          isOpen={announceModal?.isOpen}
+          onClose={() => setAnnounceModal({ isOpen: false, data: null })}
         />
       )}
     </Box>
