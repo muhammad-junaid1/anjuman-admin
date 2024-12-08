@@ -1,12 +1,15 @@
 // Admin Imports
 import MainDashboard from "views/admin/default";
 import Profile from "views/admin/profile";
+import UsersPage from "views/admin/users";
+import PostsPage from "views/admin/posts";
 
 // Auth Imports
 import SignIn from "views/auth/SignIn";
 
 // Icon Imports
-import { MdHome, MdPerson, MdLock } from "react-icons/md";
+import { MdHome, MdPerson, MdLock, MdPostAdd } from "react-icons/md";
+import { RiUserSettingsFill } from "react-icons/ri";
 
 const routes = [
   {
@@ -24,6 +27,22 @@ const routes = [
     path: "profile",
     icon: <MdPerson className="h-6 w-6" />,
     component: <Profile />,
+    sidebar: true,
+  },
+  {
+    name: "Users Management",
+    layout: "/admin",
+    path: "users",
+    icon: <RiUserSettingsFill className="h-6 w-6" />,
+    component: <UsersPage />,
+    sidebar: true,
+  },
+  {
+    name: "Posts Management",
+    layout: "/admin",
+    path: "posts",
+    icon: <MdPostAdd className="h-6 w-6" />,
+    component: <PostsPage />,
     sidebar: true,
   },
  
