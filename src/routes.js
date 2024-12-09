@@ -4,12 +4,13 @@ import Profile from "views/admin/profile";
 import UsersPage from "views/admin/users";
 import PostsPage from "views/admin/posts";
 import AnnouncementsPage from "views/admin/announcements";
+import EventsPage from "views/admin/events";
 
 // Auth Imports
 import SignIn from "views/auth/SignIn";
 
 // Icon Imports
-import { MdHome, MdPerson, MdLock, MdPostAdd, MdAnnouncement } from "react-icons/md";
+import { MdHome, MdPerson, MdLock, MdPostAdd, MdAnnouncement, MdEvent } from "react-icons/md";
 import { RiUserSettingsFill } from "react-icons/ri";
 
 const routes = [
@@ -53,6 +54,14 @@ const routes = [
     path: "announcements",
     icon: <MdAnnouncement className="h-6 w-6" />,
     component: <AnnouncementsPage />,
+    sidebar: true,
+  },
+     {
+    name: "Events",
+    layout: "/admin",
+    path: "events",
+    icon: <MdEvent className="h-6 w-6" />,
+    component: <EventsPage />,
     sidebar: true,
   },
  
