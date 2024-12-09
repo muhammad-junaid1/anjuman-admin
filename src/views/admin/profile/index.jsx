@@ -13,14 +13,14 @@ const ProfileOverview = () => {
           <Banner />
         </div>
 
-        <div className="col-span-3 lg:!mb-0">
+        {/* <div className="col-span-3 lg:!mb-0">
           <Storage />
-        </div>
+        </div> */}
 
       </div>
       {/* all project & ... */}
 
-      <div className="grid h-full grid-cols-1 gap-5 lg:!grid-cols-12">
+      {/* <div className="grid h-full grid-cols-1 gap-5 lg:!grid-cols-12">
         <div className="col-span-5 lg:col-span-6 lg:mb-0 3xl:col-span-6">
           <Project />
         </div>
@@ -29,7 +29,7 @@ const ProfileOverview = () => {
         <div className="col-span-5 lg:col-span-12 lg:mb-0 3xl:!col-span-6">
           <Notification />
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
